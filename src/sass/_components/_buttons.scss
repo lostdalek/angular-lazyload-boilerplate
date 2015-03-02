@@ -1,0 +1,109 @@
+
+@include keyframes(success-blink) {
+  0% {
+    background-color: $btn-success-bg;
+  }
+  50% {
+    background-color: darken($btn-success-bg, 20%);
+  }
+}
+@include keyframes(cancel-blink) {
+  0% {
+    background-color: $btn-warning-bg;
+  }
+  50% {
+    background-color: darken($btn-warning-bg, 20%);
+  }
+}
+
+.cancel-changed {
+  background-color: $btn-warning-bg;
+  border-color: $btn-warning-border;
+  @include animation(cancel-blink 1s linear infinite);
+}
+.success-changed {
+  background-color: $btn-success-bg;
+  border-color: $btn-success-border;
+  @include animation(success-blink 1s linear infinite);
+}
+
+.btn {
+  //border-radius: 3px;
+  &.btn-primary {
+    &:visited {
+      color: #FFF;
+    }
+  }
+  .cg-busy {
+    margin-left: -5px;
+    top: 0;
+    position: relative;
+    float: left;
+    width: 25px;
+    height: 15px;
+    .cg-busy-button-spinner,
+    .cg-busy-default-spinner {
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 18px;
+      height: 18px;
+    }
+    .cg-busy-button-spinner div,
+    .cg-busy-default-spinner div {
+      background-color: #FFF;
+    }
+  }
+}
+
+
+.btn.btn-round {
+  width: 40px;
+  height: 40px;
+  line-height: 37px; /* adjust line height to align vertically*/
+  padding:0;
+  border-radius: 50%;
+  &.btn-xs {
+    width: 25px;
+    height: 25px;
+    line-height: 22px; /* adjust line height to align vertically*/
+  }
+  &.btn-lg {
+
+  }
+  &:focus {
+    outline: 0 !important;
+  }
+  .cg-busy {
+    position: absolute;
+    .spinner {
+      width: 40px !important;
+    }
+    .cg-busy-button-spinner,
+    .cg-busy-default-spinner {
+      top: 6px !important;
+      left: 11px !important;
+      width: 27px;
+      height: 27px;
+      //width: 40px !important;
+      //height: 40px !important;
+    }
+  }
+}
+.btn-lg{
+  /*&.active {
+    background-color: $btn-success-bg;
+    border-color: $btn-success-border;
+  }*/
+  //&.btn-round {
+  //  padding: 10px 14px;
+  //  border-radius: 100px;
+  //  font-size: 17px;
+  //  line-height: 24px;
+  //}
+}
+
+
+
+

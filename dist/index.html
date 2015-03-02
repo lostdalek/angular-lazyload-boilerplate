@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <!-- main:css -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- endinject -->
+    <!-- fontawesome:css -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- endinject -->
+
+    <!-- jquery:js -->
+    <script src="vendors/jquery.min.js"></script>
+    <!-- endinject -->
+    <!-- modernizr:js -->
+    <script src="vendors/modernizr.min.js"></script>
+    <!-- endinject -->
+</head>
+<body ng-cloak=""  ng-app="application"  ng-strict-di>
+<div ui-view=""></div>
+    <!-- vendors:js -->
+    <script src="vendors/vendors.min.js"></script>
+    <!-- endinject -->
+    <!-- application:js -->
+    <script src="application/application.js"></script>
+    <script src="components/components.js"></script>
+    <!-- endinject -->
+</body>
+</html>

@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-lg-12">
+
+        <h2>{{'playerTitle'|translate}}<a ui-sref="^.add" href="" class="btn btn-default  btn-round btn-warning pull-right">
+            <i class="fa fa-plus"></i>
+        </a></h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="widget">
+            <div class="widget-header">
+                <i class="fa fa-tasks"></i><span ncy-breadcrumb-last></span>
+                <input st-search="" type="text" placeholder="Search" class="form-control input-sm pull-right"
+                       ng-if="dashboard.userData.config.searchable"/>
+                <div class="clearfix"></div>
+            </div>
+            <div class="widget-body medium no-padding no-height-limit">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                        <tr ng-repeat="player in player">
+                            <td>
+                                <a ui-sref="^.view({id:player.id})" href="">#{{player.id}} - {{player.name}}</a>
+                                <span class="pull-right">
+                            <a class="btn btn-default btn-xs btn-round btn-info" ui-sref="^.edit({id:player.id})">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                          <a class="btn btn-default btn-xs btn-round btn-warning" ng-click="delete(player)">
+                              <i class="fa fa-trash"></i>
+                          </a>
+                                </span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-center">
+                        <pagination
+                                ng-model="currentPage"
+                                ng-change="pageChanged(page)"
+                                total-items="totalItems" items-per-page="perPage"
+                                page="bigCurrentPage"
+                                max-size="maxSize" class="pagination-md"
+                                boundary-links="true" rotate="true" num-pages="numPages"
+                                previous-text="previous"
+                                next-text="next"
+                                first-text="first"
+                                last-text="last">
+                        </pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

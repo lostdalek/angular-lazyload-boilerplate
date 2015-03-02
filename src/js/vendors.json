@@ -1,0 +1,28 @@
+[
+    "../bower_components/lodash/dist/lodash.js",
+    "../bower_components/angular/angular.js",
+    "../bower_components/angular-resource/angular-resource.js",
+    "../bower_components/angular-route/angular-route.js",
+    "../bower_components/angular-animate/angular-animate.js",
+    "../bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
+    "../bower_components/angular-busy/dist/angular-busy.js",
+    "../bower_components/angular-sanitize/angular-sanitize.js",
+    "../bower_components/angular-cookies/angular-cookies.js",
+    "../bower_components/angular-translate/angular-translate.js",
+    "../bower_components/angular-messages/angular-messages.js",
+    "../bower_components/angular-translate-loader-url/angular-translate-loader-url.js",
+
+    "../bower_components/ngstorage/ngStorage.js",
+    "../bower_components/angular-growl-v2/build/angular-growl.js",
+    "../bower_components/angular-ui-router/release/angular-ui-router.js",
+    "../bower_components/angular-smart-table/dist/smart-table.min.js",
+    "../bower_components/ocLazyLoad/dist/ocLazyLoad.js",
+    "../bower_components/restangular/dist/restangular.js",
+    "../bower_components/ui-router-extras/release/ct-ui-router-extras.js",
+    "../bower_components/angular-breadcrumb/dist/angular-breadcrumb.js",
+
+    "../bower_components/tv4/tv4.js",
+    "../bower_components/objectpath/lib/ObjectPath.js",
+    "../bower_components/angular-schema-form/dist/schema-form.min.js",
+    "../bower_components/angular-schema-form/dist/bootstrap-decorator.min.js"
+]

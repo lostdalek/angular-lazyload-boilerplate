@@ -1,0 +1,117 @@
+/*
+#424b5d
+*/
+/* #592727 RED */
+/* #2f5927 GREEN */
+/* #30426a BLUE (default)*/
+
+
+
+
+@import './_variablesBootstrap.scss';
+@import './_variablesGlobal.scss';
+@import '../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap';
+@import '_angular/_angular-busy';
+@import '_angular/_angular-growl';
+@import '_components/_components.scss';
+
+.row.no-gutter, .row.no-gutter > [class*='col-']{
+  margin-bottom:0;
+}
+.no-gutter > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
+.row.no-gutter--bottom {
+  margin-bottom:0;
+  & > [class*='col-'] {
+    margin-bottom:0;
+  }
+}
+
+
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
+
+/* Base */
+html {
+  overflow-y: scroll;
+}
+body {
+  font-family: 'Open Sans', sans-serif!important;
+  color: $text-color !important;
+  margin-top: 60px;
+}
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.row > div {
+  margin-bottom: 15px;
+}
+
+.alerts-container .alert:last-child {
+  margin-bottom: 0;
+}
+
+h1, h2 {
+  font-weight: 300;
+}
+
+
+
+#page-wrapper, #sidebar-wrapper {
+  transition: all .4s ease 0s;
+}
+.green {
+  background: #23ae89 !important;
+}
+.blue {
+  background: #2361ae !important;
+}
+.orange {
+  background: #d3a938 !important;
+}
+.red {
+  background: #ae2323 !important;
+}
+.form-group .help-block.form-group-inline-message {
+  padding-top: 5px;
+}
+div.input-mask {
+  padding-top: 7px;
+}
+.table > thead > tr > th {
+  vertical-align: top;
+  text-align: center;
+}
+.table > thead > tr > th > span.col-nowrap{
+  white-space: nowrap;
+}
+.table > tbody > tr > td:not(:first-of-type) {
+  border-left: 1px dashed $gray-light;
+  //&:hover {
+  //  border-left: 1px dashed $gray-lighter;
+  //}
+}
+
+.table .table {
+  background-color: transparent;
+}
+.table > tbody > tr > td.composite-cell {
+  padding: 0;
+}
+.table > tbody > tr > td.title-cell {
+  width: 50%;
+  //border: 1px solid #FF0000;
+}
+.table > tbody > tr > td.first-col {
+  white-space: nowrap;
+}
+
+.bg-content {
+  @include box-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
+  background: #ffffff;
+  border: 1px solid #e9e9e9;
+  border-radius: 2px;
+}

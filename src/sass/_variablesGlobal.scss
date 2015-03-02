@@ -1,0 +1,43 @@
+$backgroudColorLighter: #f3f3f3; // #e5e5e5
+
+$backgroundHeader: #FFF;
+$textHeaderColor: #919191;
+
+
+/* Sidebar background color */
+$sidebarBaseColor: #30426a;
+/* Sidebar header and footer color */
+$sidebarHeaderColor: darken($sidebarBaseColor, 2%);
+/* Sidebar title text colour */
+$sidebarTitleColor:  lighten($sidebarBaseColor, 30%); /*#627cb7*/
+
+
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+@mixin animation($animation-properties) {
+  -webkit-animation: $animation-properties;
+  -moz-animation: $animation-properties;
+  -ms-animation: $animation-properties;
+  -o-animation: $animation-properties;
+  animation: $animation-properties;
+}
+// keyframes mixin
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}

@@ -1,0 +1,29 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-12">
+
+			<h2><a ui-sref="^.list" class="btn btn-large btn-default btn-round">
+				<i class="fa fa-angle-left"></i>
+			</a> <a href="/player/edit/{{model.id}}" class="btn btn-default  btn-round btn-warning pull-right">
+				<i class="glyphicon glyphicon-pencil"></i>
+			</a></h2>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-12 bg-content">
+			<div class="row">
+				<div class="col-lg-12">
+
+					<form name="playerForm" ng-submit="submitForm(playerForm,model)">
+						<h2>{{ title }}</h2>
+
+						<div class="form-group" sf-schema="schema" sf-form="form" sf-model="model"
+							 sf-options="{ formDefaults: { readonly: true } }"></div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

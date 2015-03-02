@@ -1,0 +1,16 @@
+.container--filter-options, .container--filter-options-extended {
+  background-color: $backgroudColorLighter;
+}
+.container--filter-options {
+  height: 60px;
+  margin-bottom:0;
+  & > [class*='col-'] {
+    margin-bottom:0;
+  }
+}
+.container--filter-options-extended {
+  margin-bottom: 0;
+  .well {
+    padding: 19px 19px 19px 19px;
+  }
+}
