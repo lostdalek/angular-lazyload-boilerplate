@@ -47,6 +47,12 @@ app
     .get('/api/player/:id',  function (req, res) {
         res.send(playerEntity().get(req.params.id));
     })
+    .post('/api/player',  function (req, res) {
+        res.send(201, null);
+    })
+    .put('/api/player',  function (req, res) {
+        res.send(400, null);
+    })
     .get('/api/team',  function (req, res) {
         // query string: req.query
         res.send({
