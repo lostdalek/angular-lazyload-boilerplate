@@ -1,5 +1,5 @@
 'use strict';
-angular.module('components', [])
+angular.module('components')
     /**
      * when used in .config -> appConfigProvider
      * when used in .controller -> appConfig (will return $get)
