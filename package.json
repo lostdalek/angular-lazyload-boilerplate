@@ -1,8 +1,10 @@
 {
-  "name": "angular-lazyLoad-boilerplate",
-  "version": "0.0.1",
+  "name": "AMAC-Client",
+  "version": "0.1.0",
+  "repository": "https://hq0gitlab01.airtag.local/kfc/kfc-loyalty-backoffice-client.git",
   "readmeFilename": "README.md",
   "dependencies": {
+
     "gulp-nodemon": "^1.0.5"
   },
   "devDependencies": {
@@ -23,7 +25,7 @@
     "gulp-compass": "^1.3.0",
     "gulp-concat": "^2.4.0",
     "gulp-concat-json2js": "^0.1.0",
-    "gulp-connect": "^2.2.0",
+    "gulp-connect": "^2.0.6",
     "gulp-consolidate": "^0.1.2",
     "gulp-debug": "^1.0.0",
     "gulp-express": "^0.1.12",
@@ -36,7 +38,7 @@
     "gulp-jshint": "^1.8.4",
     "gulp-livereload": "^2.1.1",
     "gulp-minify-css": "^0.3.8",
-    "gulp-ng-annotate": "~0.4.*",
+    "gulp-ng-annotate": "~0.5.2",
     "gulp-notify": "^1.4.2",
     "gulp-rename": "^1.2.0",
     "gulp-replace": "^0.4.0",
@@ -59,6 +61,7 @@
     "morgan": "^1.5.0",
     "npm-check": "^3.2.6",
     "open": "0.0.5",
+    "osprey": "^0.1.1",
     "pretty-hrtime": "^0.2.1",
     "require-dir": "^0.1.0",
     "serve-static": "^1.7.1",

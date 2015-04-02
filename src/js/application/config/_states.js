@@ -10,6 +10,11 @@ angular.module('application')
         var basePath = appConfig['basePath'];
         // define placeholder for resolvable States:
         var modulesDefinition = {
+                application: {
+                    name: 'application',
+                    files: [basePath+'application/application.js'],
+                    loaded: true
+                },
                 team: {
                     name: 'teamModule',
                     files: [basePath+'teamModule/teamModule.js']
@@ -18,17 +23,6 @@ angular.module('application')
                     name: 'playerModule',
                     files: [basePath+'playerModule/playerModule.js']
                 }
-            },
-            moduleStateConfiguration = {
-                debug: true,
-                loadedModules: ['application'],
-                modules: [{
-                    name: modulesDefinition.team.name,
-                    files: modulesDefinition.team.files
-                },{
-                    name: modulesDefinition.player.name,
-                    files: modulesDefinition.player.files
-                }]
             };
         var routeStates = {
             'app': {
@@ -47,6 +41,7 @@ angular.module('application')
                             return $ocLazyLoad.load('teamModule');
                         }]
                     }
+                    // no lazyModule/lazyFile/lazyTemplateUrl as it's already loaded
                 },
                 futureStateDef: {
                     // already loaded
@@ -115,16 +110,50 @@ angular.module('application')
 
             },
             getModuleStateConfiguration: function(){
+                // generate object:
+                var moduleStateConfiguration = {
+                    debug: true,
+                    loadedModules: [], // push name string
+                    modules: [] //push object {name: '', files: []}
+                };
+                // search for preloaded modules:
+                angular.forEach(modulesDefinition, function(module){
+                    if( module.loaded === undefined ) {
+                        module.loaded = false;
+                    }
+
+                    if( module.loaded === true) {
+                        moduleStateConfiguration.loadedModules.push(
+                            module.name
+                        );
+                    } else {
+                        moduleStateConfiguration.modules.push({
+                            'name': module.name,
+                            'files': module.files
+                        });
+                    }
+                });
+
                 return moduleStateConfiguration;
             },
             /**
              * Inject route states on module configuration
              */
             routeStates: ['$stateProvider', function($stateProvider) {
-                return $stateProvider
-                    .state('app', routeStates['app']['stateDef'])
-                    .state('app.team', routeStates['app.team']['stateDef'])
-                    .state('app.player', routeStates['app.player']['stateDef']);
+                var appStates = [];
+                // retrieve all StateDef
+                angular.forEach(routeStates, function(route, routeIdentifier){
+                    var appState = route['stateDef'];
+                    if( _.isEmpty(appState) === false) {
+                        appStates.push([routeIdentifier, appState]);
+                    }
+                });
+                // declare available states:
+                angular.forEach(appStates, function(args){
+                    $stateProvider.state.apply(null, args);
+                });
+
+                return $stateProvider;
             }],
             predefinedStates: ['$q', function ($q) {
                 var deferred = $q.defer();

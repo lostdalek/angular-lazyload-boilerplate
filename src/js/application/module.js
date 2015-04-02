@@ -2,7 +2,8 @@
  * Application Component
  */
 'use strict';
-
+angular.module('ui.sortable',[]);
+angular.module('angularSpectrumColorpicker',[]);
 angular.module('application', [
     'ui.router',
     'ct.ui.router.extras',
@@ -34,4 +35,3 @@ angular.module('application', [
             $rootScope.$stateParams = $stateParams;
         }
     ]);
-
