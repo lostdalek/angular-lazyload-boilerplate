@@ -4,16 +4,23 @@
  */
 'use strict';
 angular.module('application')
-    .provider('OnDemandStateService', ['appConfigProvider', '_', function (appConfigProvider, _) {
+
+    .provider('OnDemandStateService', ['appConfigProvider', '_', 'USER_ROLES', function (appConfigProvider, _, USER_ROLES) {
+
         // init configuration with the default context:
         var appConfig = appConfigProvider.setContextConfiguration();
         var basePath = appConfig['basePath'];
+        var ALL_USER_ROLES = _.map(USER_ROLES, function(v,k){return v;});
         // define placeholder for resolvable States:
         var modulesDefinition = {
                 application: {
                     name: 'application',
                     files: [basePath+'application/application.js'],
                     loaded: true
+                },
+                user: {
+                    name: 'userModule',
+                    files: [basePath+'userModule/userModule.js']
                 },
                 team: {
                     name: 'teamModule',
@@ -35,23 +42,50 @@ angular.module('application')
                     ncyBreadcrumb: {
                         label: 'Home page'
                     },
+                    data: {
+                        authorizedRoles: ALL_USER_ROLES
+                    },
                     resolve: {
+                        /*isAuthorized: function($q, AuthService) {
+                            return AuthService.isAuthorizedRole(ALL_USER_ROLES).catch(function(){
+                                console.log('not authorized!!!')
+                            });
+                        },*/
                         // Team Module is preloaded Here:
                         loadModule: ['$ocLazyLoad', function($ocLazyLoad) {
-                            return $ocLazyLoad.load('teamModule');
+                            return $ocLazyLoad.load(['teamModule', 'userModule']);
                         }]
                     }
                     // no lazyModule/lazyFile/lazyTemplateUrl as it's already loaded
                 },
+                // already loaded
+                futureStateDef: {}
+            },
+            'app.user': {
+                stateDef: {
+                    url: '^/user',
+                    abstract: true,
+                    lazyModule: modulesDefinition.user.name,
+                    lazyFiles: modulesDefinition.user.files,
+                    lazyTemplateUrl: 'userModule/tpl/main.html',
+                    templateProvider: ['$templateCache', function ($templateCache) {
+                        return $templateCache.get('userModule/tpl/main.html');
+                    }],
+                    ncyBreadcrumb: {
+                        label: 'User'
+                    }
+                },
                 futureStateDef: {
-                    // already loaded
+                    'stateName': 'app.user',
+                    'urlPrefix': '/user',
+                    'type': 'ocLazyLoad',
+                    'module': modulesDefinition.user.name
                 }
             },
             'app.team': {
                 stateDef: {
                     url: '^/team',
                     abstract: true,
-                    controller: 'TeamCtrl',
                     templateProvider: ['$templateCache', function($templateCache){
                         return $templateCache.get('teamModule/tpl/main.html');
                     }],
@@ -60,7 +94,8 @@ angular.module('application')
                     lazyTemplateUrl: 'teamModule/tpl/main.html',
                     ncyBreadcrumb: {
                         label: 'Team'
-                    }
+                    },
+                    resolve: {}
                 },
                 futureStateDef: {
                     'stateName': 'app.team',

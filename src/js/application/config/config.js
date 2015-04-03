@@ -38,6 +38,8 @@ angular.module('application')
              var appConfig = appConfigProvider.getContextConfiguration();
              var basePath = appConfig['basePath'];
 
+
+
             $ocLazyLoadProvider.config(OnDemandStateServiceProvider.getModuleStateConfiguration());
 
             growlProvider.globalDisableCountDown(true);
@@ -110,5 +112,7 @@ angular.module('application')
                     }
                 );
             }]);
+
+
 
         }]);

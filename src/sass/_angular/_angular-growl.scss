@@ -2,15 +2,18 @@
 /*
  *  growl-container styles
  */
+.growl-container {
+  margin-top: 50px !important;
+}
 .growl-container.growl-fixed {
   position: fixed;
-  //float: right;
+  float: right;
   //width: 100%;
   //max-width: 100%;
-
+  top: 100px;
   left: 0;
   right: 0;
-  width: 98%;
+  width: 96%;
   margin: 0 auto;
 
   z-index: 9999;

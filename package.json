@@ -8,7 +8,6 @@
     "gulp-nodemon": "^1.0.5"
   },
   "devDependencies": {
-    "body-parser": "^1.9.2",
     "bower": "^1.3.12",
     "canonical-path": "0.0.2",
     "connect": "^3.2.0",
@@ -18,7 +17,6 @@
     "dgeni": "^0.4.0",
     "dgeni-packages": "^0.10.0-rc.6",
     "event-stream": "^3.1.7",
-    "express": "^4.9.0",
     "gulp": "3.8.*",
     "gulp-angular-templatecache": "~1.4.1",
     "gulp-clean": "^0.3.1",
@@ -57,15 +55,26 @@
     "karma-ng-html2js-preprocessor": "*",
     "karma-phantomjs-launcher": "*",
     "karma-script-launcher": "*",
-    "lodash": "^2.4.1",
-    "morgan": "^1.5.0",
     "npm-check": "^3.2.6",
     "open": "0.0.5",
     "osprey": "^0.1.1",
     "pretty-hrtime": "^0.2.1",
     "require-dir": "^0.1.0",
     "serve-static": "^1.7.1",
-    "yargs": "^1.3.1"
+    "yargs": "^1.3.1",
+
+    "async": "^0.9.0",
+    "bcryptjs": "^2.1.0",
+    "body-parser": "^1.10.0",
+    "express": "^4.10.6",
+    "jwt-simple": "^0.2.0",
+    "lodash": "^2.4.1",
+    "moment": "^2.8.3",
+    "mongoose": "^4.0.1",
+    "request": "^2.42.0",
+
+
+    "morgan": "^1.5.0"
   },
   "engines": {
     "node": ">=0.8.0"

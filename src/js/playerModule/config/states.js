@@ -1,6 +1,6 @@
 'use strict';
 angular.module('playerModule')
-    .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', 'USER_ROLES', function($stateProvider, $urlRouterProvider, USER_ROLES) {
 
         $stateProvider
             .state('app.player.list', {
@@ -9,9 +9,24 @@ angular.module('playerModule')
                     label: 'Player list'
                 },
                 controller: 'PlayerListCtrl',
+                authorizedRoles: USER_ROLES.logguedIn,
                 templateProvider: ['$templateCache', function($templateCache){
                     return $templateCache.get('playerModule/tpl/list.html');
-                }]
+                }],
+                data: {
+                    authorizedRoles: USER_ROLES.superAdmin,
+                    onAuthorizationFailure: function($state) {
+                        $state.go('app');
+                    }
+                },
+                resolve: {
+                    /*isAuthorized: ['$q', '$state', 'AuthService', function($q, $state, AuthService) {
+                        return AuthService.isAuthorizedRole(USER_ROLES.superAdmin).catch(function(){
+                            $state.go('app');
+                            return false;
+                        });
+                    }]*/
+                }
             })
             // nested list with just some random string data
             .state('app.player.add', {
@@ -61,5 +76,4 @@ angular.module('playerModule')
                     }]
                 }
             });
-        //$urlRouterProvider.when('/player', '/player/list');
     }]);

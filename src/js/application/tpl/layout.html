@@ -14,6 +14,13 @@
             <ul class="nav navbar-nav">
                 <li><a href="/team/list">Team List <span class="badge">{{application.teamCount}}</span></a></li>
                 <li><a href="/player/list">Player List</a></li>
+                <li><a href="/resource/list">Resource List</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-controller="NavbarCtrl">
+                <li><a href="/user/profile" ng-if="isAuth">{{user.displayName}}</a></li>
+                <li><a href="/user/logout" ng-if="isAuth">Logout</a></li>
+                <li><a href="/user/login" ng-if="!isAuth">Login</a></li>
+
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -35,7 +42,8 @@
                         <ul>
                             <li ng-repeat="team in application.teamCollection"><a href="/team/{{team.id}}">{{team.name}}</a> </li>
                         </ul></li>
-                        <li>Player Module is loaded on demand</li>
+                        <li>User Module is pre-loaded  <b>(User state: <a href="/user/profile" ng-if="isAuth">connected as {{user.displayName}}</a><a href="/user/login" ng-if="!isAuth">Anonymous</a>)</b></li>
+                        <li>Player Module is loaded on demand and require user authentification</li>
                     </ul>
                     <h3>Key Implementations:</h3>
                     <ul>
@@ -51,6 +59,7 @@
                             <li>NPM and Bower package dependencies</li>
                             <li>LiveReload (broken)</li>
                         </ul></li>
+                        <li>User authentification with Satellizer Library</li>
                     </ul>
                 </div>
             </div>

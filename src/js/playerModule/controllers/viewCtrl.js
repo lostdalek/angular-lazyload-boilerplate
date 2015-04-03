@@ -26,7 +26,6 @@ angular.module('playerModule')
             if (form.$valid) {
                 _.extend(playerObj.data, model);
                 playerObj.data.put().then(function (response) {
-                    console.log(response);
                     //$state.go('/list');
                 });
             }
