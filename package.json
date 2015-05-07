@@ -1,10 +1,8 @@
 {
-  "name": "AMAC-Client",
-  "version": "0.1.0",
-  "repository": "https://hq0gitlab01.airtag.local/kfc/kfc-loyalty-backoffice-client.git",
+  "name": "angular-lazyLoad-boilerplate",
+  "version": "0.0.1",
   "readmeFilename": "README.md",
   "dependencies": {
-
     "gulp-nodemon": "^1.0.5"
   },
   "devDependencies": {

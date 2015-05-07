@@ -4,12 +4,10 @@
  */
 'use strict';
 angular.module('application')
-
     .provider('OnDemandStateService', ['appConfigProvider', '_', 'USER_ROLES', function (appConfigProvider, _, USER_ROLES) {
-
-        // init configuration with the default context:
         var appConfig = appConfigProvider.setContextConfiguration();
         var basePath = appConfig['basePath'];
+
         var ALL_USER_ROLES = _.map(USER_ROLES, function(v,k){return v;});
         // define placeholder for resolvable States:
         var modulesDefinition = {
@@ -47,10 +45,10 @@ angular.module('application')
                     },
                     resolve: {
                         /*isAuthorized: function($q, AuthService) {
-                            return AuthService.isAuthorizedRole(ALL_USER_ROLES).catch(function(){
-                                console.log('not authorized!!!')
-                            });
-                        },*/
+                         return AuthService.isAuthorizedRole(ALL_USER_ROLES).catch(function(){
+                         console.log('not authorized!!!')
+                         });
+                         },*/
                         // Team Module is preloaded Here:
                         loadModule: ['$ocLazyLoad', function($ocLazyLoad) {
                             return $ocLazyLoad.load(['teamModule', 'userModule']);

@@ -58,11 +58,7 @@ angular.module('application', [
                         }
                     });
                 };
-
                 checkAuthorization(next.data.authorizedRoles);
-                
-                
-                
             });
         }
     ]);
